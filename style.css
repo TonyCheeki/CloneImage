@@ -1,0 +1,29 @@
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+    max-width:180px;
+
+}
+input{
+    background-color: #82b524;
+}
+.border{
+    padding: 10px;
+    border-color: #82b524;
+    width: 50%;
+    margin: auto;
+    margin-top: 300px;
+    -webkit-box-shadow: 10px 17px 45px -13px rgba(130,181,36,0.53);
+    -moz-box-shadow: 10px 17px 45px -13px rgba(130,181,36,0.53);
+    box-shadow: 10px 17px 45px -13px rgba(130,181,36,0.53);
+    text-align: center;
+    border-radius: 15px;
+}
+.container{
+    margin: auto;
+    width: 50%;
+
+    padding: 10px;
+}

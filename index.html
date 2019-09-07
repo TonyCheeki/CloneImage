@@ -1,34 +1,27 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-  </head>
-  <body>
-
-  <input id="test" type="file" name="myImage" accept="image/x-png,image/gif,image/jpeg" />
-  <button type="button" name="button"><a class="help-button col-sm-4 downloadupaddinvoice"  title="Download uploaded invoice" download><i class="icon-download-alt"></i></a></button>
-  <script type="text/javascript">
-
-  $(".downloadupaddinvoice").click(function(){
-        var filename = $('#id-input-file-2').val();
-
-        if (filename == "" || filename == null) {
-            alert('Error');
-        }else {
-            var file = document.getElementById('id-input-file-2').files[0];
-            var filename = document.getElementById('id-input-file-2').files[0].name;
-            var blob = new Blob([file]);
-            var url  = URL.createObjectURL(blob);
-
-            $(this).attr({ 'download': filename, 'href': url});
-            filename = "";
-        }
-
-    })
-  </script>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+  <script src="javaScript.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body >
+<div class="container"  class="border-0">
+  <div class="border">
+    <form>
+      <div class="form-group">
+        <img id="blah" src="http://placehold.it/180" alt="your image" />
+        <label for="exampleInputEmail1">kiez een bestand</label>
+        <input class=" btn-lg" type="file" id="fileSelector" accept="image/x-png,image/gif,image/jpeg" onchange="readURL(this);" />
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">voer SKU hier in</label>
+        <input type="text" class="form-control" id="myTextarea" placeholder="SKU's"  value="">
+      </div>
+      <input class="btn btn-md" type='button' value='Download' onclick='DownloadFile()'/>
+    </form>
   </div>
-  </body>
+</div>
+</body>
 </html>
