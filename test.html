@@ -57,31 +57,18 @@
       }
 
       function DownloadFile() {
-
-          file = input.files[0];
-          fr = new FileReader();
-          fr.readAsDataURL(file);
+          file = document.getElementById("fileSelector").files[0];
 
           var blob = new Blob([file], { type: "application/png" });
 
           var objectURL = window.URL.createObjectURL(blob);
-          console.log(objectURL);
 
-
-          if (navigator.appVersion.toString().indexOf('.NET') > 0) {
-              window.navigator.msSaveOrOpenBlob(blob, 'myFileName.png');
-          } else {
-
-
-              // document.getElementById("myTextarea").value =test;
-              var link = document.createElement('a');
-              link.href = objectURL;
-              link.download = "myFileName.png";
-              document.body.appendChild(link);
-              link.click();
-              link.remove
-              console.log(text);
-          }
+          var link = document.createElement('a');
+          link.href = objectURL;
+          link.download = "myFileName.png";
+          link.click();
+	      window.URL.revokeObjectURL(objectURL);
+          link.remove();
       }
   </script>
 
@@ -95,13 +82,13 @@
   <div class="form-group">
     <img id="blah" src="http://placehold.it/180" alt="your image" />
     <label for="exampleInputEmail1">kiez een bestand</label>
-    <input  class=" btn-lg" type="file" id="input" accept="image/x-png,image/gif,image/jpeg" onchange="readURL(this);" />
+    <input class=" btn-lg" type="file" id="fileSelector" accept="image/x-png,image/gif,image/jpeg" onchange="readURL(this);" />
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">voer SKU hier in</label>
     <input type="text" class="form-control" id="myTextarea" placeholder="SKU's"  value="">
   </div>
-  <input  class="btn btn-md" type='button' value='Download' onclick='DownloadFile()'/>
+  <input class="btn btn-md" type='button' value='Download' onclick='DownloadFile()'/>
 </form>
 </div>
 </div>
